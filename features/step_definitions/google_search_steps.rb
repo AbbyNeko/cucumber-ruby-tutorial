@@ -2,13 +2,13 @@ require 'selenium-webdriver'
 
 Given(/^the user navigates to the Google page$/) do
   @driver = Selenium::WebDriver.for :chrome
-  @driver.get "http://google.com"
+  @driver.get "www.google.com"
 end
 
 When(/^the user searches for "(.*)"$/) do |keyword|
-  element = @driver.find_element(name: "q")
-  element.send_keys keyword
-  element.submit
+  search_bar = @driver.find_element(name: "q")
+  search_bar.send_keys keyword
+  search_bar.submit
 end
 
 Then(/^the user is redirected to the results page for "(.*)"$/) do |keyword|
